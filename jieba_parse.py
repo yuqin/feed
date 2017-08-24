@@ -39,12 +39,16 @@ os.chdir('/Users/YuqinJIANG/PycharmProjects/tools1')
 #USAGE = "usage:    python extract_tags_with_weight.py ['data.csv'] -k [20] -w [1]"
 
 test_data=pd.read_csv('data.csv',sep='\t',header=None,names=['user_id','doc_id'])
+
+
 test_doc_id=test_data['doc_id'].drop_duplicates().tolist()
+
 with open('data.csv', "rb") as csvfile:
     for row in csvfile:
         doc_content = re.split(r'\t', row)
         doc_content_1 = doc_content[2].decode('gb18030')
         print doc_content_1
+
         tags=jieba.analyse.extract_tags(doc_content_1, topK=5, withWeight=1)
         for tag in tags:
            print("tag: %s\t\t weight: %f" % (tag[0], tag[1]))

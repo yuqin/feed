@@ -1,11 +1,10 @@
 # coding: utf-8
 # __author__: u"Yuqin"
 """
-这里存放的是元数据
-header, 表头信息
-relation, 字段关系
-tables, 数据集信息
-等信息
+这里存放的是元数据header,
+表头信息relation,
+字段关系tables,
+数据集信息等信息
 """
 from __future__ import unicode_literals
 from os.path import join
@@ -15,7 +14,8 @@ TABLES = filter(lambda x: ".csv" in x, listdir(join(getcwd(), "train")) + listdi
 
 HEADERS = dict(
     example=["user_id", "doc_id", "percentage"],
-    data_test=["doc_id", "doc_content"],
+    data_test=["doc_id", "doc_title", "doc_content"],
+    train=["user_id", "doc_id"],
 
     browse_history_train=["用户id", "时间戳", "浏览行为数据", "浏览子行为编号"],
     browse_history_test=["用户id", "时间戳", "浏览行为数据", "浏览子行为编号"],
